@@ -26,7 +26,7 @@ class Film
     /**
      * @ORM\Column(type="date", nullable=true)
      */
-    private $AAnnÃee_Production;
+    private $annee_Production;
 
     /**
      * @ORM\Column(type="integer", nullable=true)
@@ -98,14 +98,14 @@ class Film
         return $this;
     }
 
-    public function getAAnnÃeeProduction(): ?\DateTimeInterface
+    public function getanneeProduction(): ?\DateTimeInterface
     {
-        return $this->AAnnÃee_Production;
+        return $this->annee_Production;
     }
 
-    public function setAAnnÃeeProduction(?\DateTimeInterface $AAnnÃee_Production): self
+    public function setanneeProduction(?\DateTimeInterface $annee_Production): self
     {
-        $this->AAnnÃee_Production = $AAnnÃee_Production;
+        $this->annee_Production = $annee_Production;
 
         return $this;
     }
