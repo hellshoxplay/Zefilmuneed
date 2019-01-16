@@ -29,7 +29,7 @@ class Film
     private $annee_Production;
 
     /**
-     * @ORM\Column(type="integer", nullable=true)
+     * @ORM\Column(type="decimal", nullable=true)
      */
     private $note;
 
