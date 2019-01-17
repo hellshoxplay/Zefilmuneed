@@ -33,6 +33,12 @@ Abstract class Personne
      */
     private $nom;
 
+    public function getFullName()
+    {
+        return $this->getPrenom().' '.$this->getNom();
+    }
+
+
     public function getId(): ?int
     {
         return $this->id;

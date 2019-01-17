@@ -69,7 +69,7 @@ class Film
     private $tags;
 
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\Genre", mappedBy="films")
+     * @ORM\ManyToMany(targetEntity="App\Entity\Genre", inversedBy="films")
      */
     private $genres;
 
@@ -275,4 +275,5 @@ class Film
 
         return $this;
     }
+
 }
