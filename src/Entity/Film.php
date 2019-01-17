@@ -29,7 +29,7 @@ class Film
     private $annee_Production;
 
     /**
-     * @ORM\Column(type="decimal", nullable=true)
+     * @ORM\Column(type="float", nullable=true)
      */
     private $note;
 
@@ -54,11 +54,6 @@ class Film
     private $producteurs;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Editeur", inversedBy="films")
-     */
-    private $editeur;
-
-    /**
      * @ORM\ManyToMany(targetEntity="App\Entity\Acteur", inversedBy="films")
      */
     private $acteurs;
@@ -72,6 +67,11 @@ class Film
      * @ORM\ManyToMany(targetEntity="App\Entity\Genre", inversedBy="films")
      */
     private $genres;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Editeur", inversedBy="films")
+     */
+    private $editeur;
 
     public function __construct()
     {
@@ -110,12 +110,12 @@ class Film
         return $this;
     }
 
-    public function getNote(): ?int
+    public function getNote(): ?float
     {
         return $this->note;
     }
 
-    public function setNote(?int $note): self
+    public function setNote(?float $note): self
     {
         $this->note = $note;
 
@@ -180,18 +180,6 @@ class Film
         if ($this->producteurs->contains($producteur)) {
             $this->producteurs->removeElement($producteur);
         }
-
-        return $this;
-    }
-
-    public function getEditeur(): ?Editeur
-    {
-        return $this->editeur;
-    }
-
-    public function setEditeur(?Editeur $editeur): self
-    {
-        $this->editeur = $editeur;
 
         return $this;
     }
@@ -272,6 +260,18 @@ class Film
             $this->genres->removeElement($genre);
             $genre->removeFilm($this);
         }
+
+        return $this;
+    }
+
+    public function getEditeur(): ?Editeur
+    {
+        return $this->editeur;
+    }
+
+    public function setEditeur(?Editeur $editeur): self
+    {
+        $this->editeur = $editeur;
 
         return $this;
     }
