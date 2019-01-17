@@ -9,7 +9,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * @ORM\Entity(repositoryClass="App\Repository\EditeurRepository")
  */
-class Editeur extends Personne
+class Editeur
 {
     /**
      * @ORM\Id()
@@ -22,6 +22,11 @@ class Editeur extends Personne
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $nationalite;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $nom;
 
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\Film", mappedBy="editeur")
@@ -46,6 +51,18 @@ class Editeur extends Personne
     public function setNationalite(?string $nationalite): self
     {
         $this->nationalite = $nationalite;
+
+        return $this;
+    }
+
+    public function getNom(): ?string
+    {
+        return $this->nom;
+    }
+
+    public function setNom(string $nom): self
+    {
+        $this->nom = $nom;
 
         return $this;
     }

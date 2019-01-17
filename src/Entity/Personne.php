@@ -11,10 +11,9 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\DiscriminatorMap({
  *     "PRODUCTEUR" = "App\Entity\Producteur",
  *     "ACTEUR" = "App\Entity\Acteur",
- *     "EDITEUR" = "App\Entity\Editeur"
  * })
  */
-Abstract class Personne
+abstract class Personne
 {
     /**
      * @ORM\Id()
@@ -32,6 +31,33 @@ Abstract class Personne
      * @ORM\Column(type="string", length=255)
      */
     private $nom;
+
+    /**
+     * @return mixed
+     */
+    public function getNationalite ()
+    {
+        return $this->nationalite;
+    }
+
+    /**
+     * @param mixed $nationalite
+     */
+    public function setNationalite ($nationalite): void
+    {
+        $this->nationalite = $nationalite;
+    }
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $nationalite;
+
+    public function getFullName()
+    {
+        return $this->getPrenom().' '.$this->getNom();
+    }
+
 
     public function getId(): ?int
     {

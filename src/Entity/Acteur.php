@@ -11,12 +11,6 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Acteur extends Personne
 {
-    /**
-     * @ORM\Id()
-     * @ORM\GeneratedValue()
-     * @ORM\Column(type="integer")
-     */
-    private $id;
 
     /**
      * @ORM\Column(type="date", nullable=true)
@@ -24,23 +18,14 @@ class Acteur extends Personne
     private $date_naissance;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     */
-    private $nationalite;
-
-    /**
      * @ORM\ManyToMany(targetEntity="App\Entity\Film", mappedBy="acteurs")
      */
     private $films;
 
+
     public function __construct()
     {
         $this->films = new ArrayCollection();
-    }
-
-    public function getId(): ?int
-    {
-        return $this->id;
     }
 
     public function getDateNaissance(): ?\DateTimeInterface
@@ -51,18 +36,6 @@ class Acteur extends Personne
     public function setDateNaissance(?\DateTimeInterface $date_naissance): self
     {
         $this->date_naissance = $date_naissance;
-
-        return $this;
-    }
-
-    public function getNationalite(): ?string
-    {
-        return $this->nationalite;
-    }
-
-    public function setNationalite(?string $nationalite): self
-    {
-        $this->nationalite = $nationalite;
 
         return $this;
     }
