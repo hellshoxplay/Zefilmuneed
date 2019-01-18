@@ -7,18 +7,18 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass="App\Repository\ActeurRepository")
+ * @ORM\Entity(repositoryClass="App\Repository\ActorRepository")
  */
-class Acteur extends Personne
+class Actor extends Person
 {
 
     /**
      * @ORM\Column(type="date", nullable=true)
      */
-    private $date_naissance;
+    private $birthDate;
 
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\Film", mappedBy="acteurs")
+     * @ORM\ManyToMany(targetEntity="App\Entity\Film", mappedBy="actors")
      */
     private $films;
 
@@ -28,14 +28,14 @@ class Acteur extends Personne
         $this->films = new ArrayCollection();
     }
 
-    public function getDateNaissance(): ?\DateTimeInterface
+    public function getBirthDate(): ?\DateTimeInterface
     {
-        return $this->date_naissance;
+        return $this->birthDate;
     }
 
-    public function setDateNaissance(?\DateTimeInterface $date_naissance): self
+    public function setBirthDate(?\DateTimeInterface $birthDate): self
     {
-        $this->date_naissance = $date_naissance;
+        $this->birthDate = $birthDate;
 
         return $this;
     }

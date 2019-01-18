@@ -21,12 +21,12 @@ class Film
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $titre;
+    private $title;
 
     /**
      * @ORM\Column(type="date", nullable=true)
      */
-    private $annee_Production;
+    private $productionDate;
 
     /**
      * @ORM\Column(type="float", nullable=true)
@@ -46,17 +46,17 @@ class Film
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $bande_annonce;
+    private $teaser;
 
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\Producteur", inversedBy="films")
+     * @ORM\ManyToMany(targetEntity="Producer", inversedBy="films")
      */
-    private $producteurs;
+    private $producers;
 
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\Acteur", inversedBy="films")
+     * @ORM\ManyToMany(targetEntity="Actor", inversedBy="films")
      */
-    private $acteurs;
+    private $actors;
 
     /**
      * @ORM\ManyToMany(targetEntity="App\Entity\Tag", inversedBy="films")
@@ -69,14 +69,14 @@ class Film
     private $genres;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Editeur", inversedBy="films")
+     * @ORM\ManyToOne(targetEntity="Editor", inversedBy="films")
      */
     private $editeur;
 
     public function __construct()
     {
-        $this->producteurs = new ArrayCollection();
-        $this->acteurs = new ArrayCollection();
+        $this->producers = new ArrayCollection();
+        $this->actors = new ArrayCollection();
         $this->tags = new ArrayCollection();
         $this->genres = new ArrayCollection();
     }
@@ -86,26 +86,26 @@ class Film
         return $this->id;
     }
 
-    public function getTitre(): ?string
+    public function getTitle(): ?string
     {
-        return $this->titre;
+        return $this->title;
     }
 
-    public function setTitre(string $titre): self
+    public function setTitle(string $title): self
     {
-        $this->titre = $titre;
+        $this->title = $title;
 
         return $this;
     }
 
-    public function getanneeProduction(): ?\DateTimeInterface
+    public function getProductionDate(): ?\DateTimeInterface
     {
-        return $this->annee_Production;
+        return $this->productionDate;
     }
 
-    public function setanneeProduction(?\DateTimeInterface $annee_Production): self
+    public function setProductionDate(?\DateTimeInterface $productionDate): self
     {
-        $this->annee_Production = $annee_Production;
+        $this->productionDate = $productionDate;
 
         return $this;
     }
@@ -146,65 +146,65 @@ class Film
         return $this;
     }
 
-    public function getBandeAnnonce(): ?string
+    public function getTeaser(): ?string
     {
-        return $this->bande_annonce;
+        return $this->teaser;
     }
 
-    public function setBandeAnnonce(?string $bande_annonce): self
+    public function setTeaser(?string $teaser): self
     {
-        $this->bande_annonce = $bande_annonce;
+        $this->teaser = $teaser;
 
         return $this;
     }
 
     /**
-     * @return Collection|Producteur[]
+     * @return Collection|Producer[]
      */
-    public function getProducteurs(): Collection
+    public function getProducers(): Collection
     {
-        return $this->producteurs;
+        return $this->producers;
     }
 
-    public function addProducteur(Producteur $producteur): self
+    public function addProducteur(Producer $producer): self
     {
-        if (!$this->producteurs->contains($producteur)) {
-            $this->producteurs[] = $producteur;
+        if (!$this->producers->contains($producer)) {
+            $this->producers[] = $producer;
         }
 
         return $this;
     }
 
-    public function removeProducteur(Producteur $producteur): self
+    public function removeProducteur(Producer $producer): self
     {
-        if ($this->producteurs->contains($producteur)) {
-            $this->producteurs->removeElement($producteur);
+        if ($this->producers->contains($producer)) {
+            $this->producers->removeElement($producer);
         }
 
         return $this;
     }
 
     /**
-     * @return Collection|Acteur[]
+     * @return Collection|Actor[]
      */
-    public function getActeurs(): Collection
+    public function getActors(): Collection
     {
-        return $this->acteurs;
+        return $this->actors;
     }
 
-    public function addActeur(Acteur $acteur): self
+    public function addActeur(Actor $actor): self
     {
-        if (!$this->acteurs->contains($acteur)) {
-            $this->acteurs[] = $acteur;
+        if (!$this->actors->contains($actor)) {
+            $this->actors[] = $actor;
         }
 
         return $this;
     }
 
-    public function removeActeur(Acteur $acteur): self
+    public function removeActeur(Actor $actor): self
     {
-        if ($this->acteurs->contains($acteur)) {
-            $this->acteurs->removeElement($acteur);
+        if ($this->actors->contains($actor)) {
+            $this->actors->removeElement($actor);
         }
 
         return $this;
@@ -264,12 +264,12 @@ class Film
         return $this;
     }
 
-    public function getEditeur(): ?Editeur
+    public function getEditeur(): ?Editor
     {
         return $this->editeur;
     }
 
-    public function setEditeur(?Editeur $editeur): self
+    public function setEditeur(?Editor $editeur): self
     {
         $this->editeur = $editeur;
 

@@ -21,7 +21,7 @@ class Genre
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $categorie;
+    private $category;
 
     /**
      * @ORM\ManyToMany(targetEntity="App\Entity\Film", mappedBy="genres")
@@ -38,14 +38,14 @@ class Genre
         return $this->id;
     }
 
-    public function getCategorie(): ?string
+    public function getCategory(): ?string
     {
-        return $this->categorie;
+        return $this->category;
     }
 
-    public function setCategorie(string $categorie): self
+    public function setCategory(string $category): self
     {
-        $this->categorie = $categorie;
+        $this->category = $category;
 
         return $this;
     }
