@@ -2,25 +2,25 @@
 
 namespace App\Repository;
 
-use App\Entity\Acteur;
+use App\Entity\Actor;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Symfony\Bridge\Doctrine\RegistryInterface;
 
 /**
- * @method Acteur|null find($id, $lockMode = null, $lockVersion = null)
- * @method Acteur|null findOneBy(array $criteria, array $orderBy = null)
- * @method Acteur[]    findAll()
- * @method Acteur[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method Actor|null find($id, $lockMode = null, $lockVersion = null)
+ * @method Actor|null findOneBy(array $criteria, array $orderBy = null)
+ * @method Actor[]    findAll()
+ * @method Actor[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class ActeurRepository extends ServiceEntityRepository
+class ActorRepository extends ServiceEntityRepository
 {
     public function __construct(RegistryInterface $registry)
     {
-        parent::__construct($registry, Acteur::class);
+        parent::__construct($registry, Actor::class);
     }
 
     // /**
-    //  * @return Acteur[] Returns an array of Acteur objects
+    //  * @return Actor[] Returns an array of Actor objects
     //  */
     /*
     public function findByExampleField($value)
@@ -37,7 +37,7 @@ class ActeurRepository extends ServiceEntityRepository
     */
 
     /*
-    public function findOneBySomeField($value): ?Acteur
+    public function findOneBySomeField($value): ?Actor
     {
         return $this->createQueryBuilder('a')
             ->andWhere('a.exampleField = :val')

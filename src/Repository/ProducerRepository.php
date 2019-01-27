@@ -2,25 +2,25 @@
 
 namespace App\Repository;
 
-use App\Entity\Producteur;
+use App\Entity\Producer;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Symfony\Bridge\Doctrine\RegistryInterface;
 
 /**
- * @method Producteur|null find($id, $lockMode = null, $lockVersion = null)
- * @method Producteur|null findOneBy(array $criteria, array $orderBy = null)
- * @method Producteur[]    findAll()
- * @method Producteur[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method Producer|null find($id, $lockMode = null, $lockVersion = null)
+ * @method Producer|null findOneBy(array $criteria, array $orderBy = null)
+ * @method Producer[]    findAll()
+ * @method Producer[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class ProducteurRepository extends ServiceEntityRepository
+class ProducerRepository extends ServiceEntityRepository
 {
     public function __construct(RegistryInterface $registry)
     {
-        parent::__construct($registry, Producteur::class);
+        parent::__construct($registry, Producer::class);
     }
 
     // /**
-    //  * @return Producteur[] Returns an array of Producteur objects
+    //  * @return Producer[] Returns an array of Producer objects
     //  */
     /*
     public function findByExampleField($value)
@@ -37,7 +37,7 @@ class ProducteurRepository extends ServiceEntityRepository
     */
 
     /*
-    public function findOneBySomeField($value): ?Producteur
+    public function findOneBySomeField($value): ?Producer
     {
         return $this->createQueryBuilder('p')
             ->andWhere('p.exampleField = :val')

@@ -7,9 +7,9 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass="App\Repository\EditeurRepository")
+ * @ORM\Entity(repositoryClass="App\Repository\EditorRepository")
  */
-class Editeur
+class Editor
 {
     /**
      * @ORM\Id()
@@ -21,15 +21,15 @@ class Editeur
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $nationalite;
+    private $nationality;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $nom;
+    private $name;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Film", mappedBy="editeur")
+     * @ORM\OneToMany(targetEntity="App\Entity\Film", mappedBy="editor")
      */
     private $films;
 
@@ -43,26 +43,26 @@ class Editeur
         return $this->id;
     }
 
-    public function getNationalite(): ?string
+    public function getNationality(): ?string
     {
-        return $this->nationalite;
+        return $this->nationality;
     }
 
-    public function setNationalite(?string $nationalite): self
+    public function setNationality(?string $nationality): self
     {
-        $this->nationalite = $nationalite;
+        $this->nationality = $nationality;
 
         return $this;
     }
 
-    public function getNom(): ?string
+    public function getName(): ?string
     {
-        return $this->nom;
+        return $this->name;
     }
 
-    public function setNom(string $nom): self
+    public function setName(string $name): self
     {
-        $this->nom = $nom;
+        $this->name = $name;
 
         return $this;
     }

@@ -1,3 +1,5 @@
 index:
-    path: /
-    controller: App\Controller\HomeController::index
+    path: /home
+    controller: App\Controller\HomeController::home
+app_logout:
+    path: /logout

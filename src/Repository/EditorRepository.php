@@ -2,25 +2,25 @@
 
 namespace App\Repository;
 
-use App\Entity\Editeur;
+use App\Entity\Editor;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Symfony\Bridge\Doctrine\RegistryInterface;
 
 /**
- * @method Editeur|null find($id, $lockMode = null, $lockVersion = null)
- * @method Editeur|null findOneBy(array $criteria, array $orderBy = null)
- * @method Editeur[]    findAll()
- * @method Editeur[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method Editor|null find($id, $lockMode = null, $lockVersion = null)
+ * @method Editor|null findOneBy(array $criteria, array $orderBy = null)
+ * @method Editor[]    findAll()
+ * @method Editor[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class EditeurRepository extends ServiceEntityRepository
+class EditorRepository extends ServiceEntityRepository
 {
     public function __construct(RegistryInterface $registry)
     {
-        parent::__construct($registry, Editeur::class);
+        parent::__construct($registry, Editor::class);
     }
 
     // /**
-    //  * @return Editeur[] Returns an array of Editeur objects
+    //  * @return Editor[] Returns an array of Editor objects
     //  */
     /*
     public function findByExampleField($value)
@@ -37,7 +37,7 @@ class EditeurRepository extends ServiceEntityRepository
     */
 
     /*
-    public function findOneBySomeField($value): ?Editeur
+    public function findOneBySomeField($value): ?Editor
     {
         return $this->createQueryBuilder('e')
             ->andWhere('e.exampleField = :val')
