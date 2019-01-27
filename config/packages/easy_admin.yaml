@@ -74,3 +74,15 @@ easy_admin:
         form:
           fields:
             - {property: 'name', label: 'Tag', type: 'text'}
+    design:
+      menu:
+        - { entity: 'Actor', icon: 'male' }
+        - { entity: 'Editor', icon: 'building' }
+        - { entity: 'Film', icon: 'film' }
+        - { entity: 'Genre', icon: 'clipboard' }
+        - { entity: 'Producer', icon: 'play' }
+        - { entity: 'Tag', icon: 'comment' }
+    list:
+      actions:
+      - { name: 'edit', icon: 'pencil', label: false }
+      - { name: 'delete', icon: 'trash', label: false }
