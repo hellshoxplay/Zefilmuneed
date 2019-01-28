@@ -71,7 +71,7 @@ class Film
     /**
      * @ORM\ManyToOne(targetEntity="Editor", inversedBy="films")
      */
-    private $editeur;
+    private $editor;
 
     public function __construct()
     {
@@ -192,7 +192,7 @@ class Film
         return $this->actors;
     }
 
-    public function addActeur(Actor $actor): self
+    public function addActor(Actor $actor): self
     {
         if (!$this->actors->contains($actor)) {
             $this->actors[] = $actor;
@@ -201,7 +201,7 @@ class Film
         return $this;
     }
 
-    public function removeActeur(Actor $actor): self
+    public function removeActor(Actor $actor): self
     {
         if ($this->actors->contains($actor)) {
             $this->actors->removeElement($actor);
@@ -264,14 +264,14 @@ class Film
         return $this;
     }
 
-    public function getEditeur(): ?Editor
+    public function getEditor(): ?Editor
     {
-        return $this->editeur;
+        return $this->editor;
     }
 
-    public function setEditeur(?Editor $editeur): self
+    public function setEditor(?Editor $editor): self
     {
-        $this->editeur = $editeur;
+        $this->editor = $editor;
 
         return $this;
     }

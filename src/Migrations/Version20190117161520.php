@@ -28,7 +28,7 @@ final class Version20190117161520 extends AbstractMigration
         $this->addSql('CREATE TABLE editeur (id INT AUTO_INCREMENT NOT NULL, nationalite VARCHAR(255) DEFAULT NULL, nom VARCHAR(255) DEFAULT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci ENGINE = InnoDB');
         $this->addSql('ALTER TABLE acteur ADD CONSTRAINT FK_EAFAD362BF396750 FOREIGN KEY (id) REFERENCES personne (id) ON DELETE CASCADE');
         $this->addSql('ALTER TABLE producteur ADD CONSTRAINT FK_7EDBEE10BF396750 FOREIGN KEY (id) REFERENCES personne (id) ON DELETE CASCADE');
-        $this->addSql('ALTER TABLE film ADD CONSTRAINT FK_8244BE223375BD21 FOREIGN KEY (editeur_id) REFERENCES editeur (id)');
+        $this->addSql( 'ALTER TABLE film ADD CONSTRAINT FK_8244BE223375BD21 FOREIGN KEY (editeur_id) REFERENCES editeur (id)' );
         $this->addSql('ALTER TABLE film_producteur ADD CONSTRAINT FK_C13F4358567F5183 FOREIGN KEY (film_id) REFERENCES film (id) ON DELETE CASCADE');
         $this->addSql('ALTER TABLE film_producteur ADD CONSTRAINT FK_C13F4358AB9BB300 FOREIGN KEY (producteur_id) REFERENCES producteur (id) ON DELETE CASCADE');
         $this->addSql('ALTER TABLE film_acteur ADD CONSTRAINT FK_8108EE68567F5183 FOREIGN KEY (film_id) REFERENCES film (id) ON DELETE CASCADE');
