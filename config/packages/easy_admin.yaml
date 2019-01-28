@@ -8,11 +8,12 @@ easy_admin:
         label: 'Acteur'
         list:
           title: 'Acteurs'
-          fields: [{property: 'firstName', label: 'Prénom'},{property: 'name', label: 'Nom de Famille'},{property: 'birthDate', label: 'Date de Naissance'},{property: 'nationality', label: 'Nationalité'},{property: 'films', label: "Films de l'acteur"}]
+          fields: [{property: 'firstName', label: 'Prénom'},{property: 'name', label: 'Nom de Famille'},{property: 'photo', label: 'Photo', type: 'image'},{property: 'birthDate', label: 'Date de Naissance'},{property: 'nationality', label: 'Nationalité'},{property: 'films', label: "Films de l'acteur"}]
         form:
           fields:
             - {property: 'firstName', type: 'text'}
             - {property: 'name', type: 'text'}
+            - {property: 'photo', type: 'text'}
             - {property: 'birthDate', label: 'Date de Naissance', type_options: {widget: 'single_text'}}
             - {property: 'nationality', label: 'Nationalite', type: 'text'}
       Film:
@@ -20,7 +21,7 @@ easy_admin:
         label: 'Film'
         list:
           title: 'Films'
-          fields: [{property: 'Title', label: 'Titre'},{property: 'producers', label: 'Producteurs'},{property: 'actors', label: 'Acteurs'},{property: 'note', label: 'Note'},{property: 'genre', label: 'Genre'},{property: 'tags', label: 'Tags'}]
+          fields: [{property: 'Title', label: 'Titre'},{property: 'cover', label: 'Affiche du Film', type: 'image'},{property: 'producers', label: 'Producteurs'},{property: 'actors', label: 'Acteurs'},{property: 'note', label: 'Note'},{property: 'tags', label: 'Tags'}]
         form:
           fields:
             - {property: 'title', type: 'text'}
@@ -29,17 +30,17 @@ easy_admin:
             - {property: 'synopsis'}
             - {property: 'cover', type: 'url'}
             - {property: 'teaser', type: 'url'}
-            - {property: 'producers', label: 'Producteurs', type: 'entity', type_options:{choice_label: 'fullName', multiple: 'true'}}
-            - {property: 'editor', label: 'Editor', type: 'entity', type_options: { choice_label: 'name'}}
-            - {property: 'actors', label: 'Acteurs', type: 'entity', type_options: { choice_label: 'fullName', multiple: 'true'}}
-            - {property: 'tags', label: 'Tags', type: 'entity', type_options: {choice_label: 'name', multiple: 'true'}}
+            - {property: 'producers', label: 'Producteurs', type: 'entity', type_options:{choice_label: 'fullName', multiple: 'true', class: 'App\Entity\Producer'}}
+            - {property: 'editor', label: 'Editor', type: 'entity', type_options: { choice_label: 'name', class: 'App\Entity\Editor'}}
+            - {property: 'actors', label: 'Acteurs', type: 'entity', type_options: { choice_label: 'fullName', multiple: 'true', class: 'App\Entity\Actor'}}
+            - {property: 'tags', label: 'Tags', type: 'entity', type_options: {choice_label: 'name', multiple: 'true', class: 'App\Entity\Tag'}}
             - {property: 'genres', label: 'Genres', type: 'entity', type_options: {choice_label: 'category', multiple: 'true', class: 'App\Entity\Genre'}}
       Editor:
         class: App\Entity\Editor
         label: 'Editeur'
         list:
           title: 'Editeurs'
-          fields: [{property: 'name', label: 'Nom du Studio'},{property: 'nationality', label: 'Nationality'},{property: 'films', label: 'Tous les Films produits'}]
+          fields: [{property: 'name', label: 'Nom du Studio'},{property: 'nationality', label: 'Nationality'}]
         form:
           fields:
             - {property: 'name', type: 'text'}

@@ -22,6 +22,11 @@ class Actor extends Person
      */
     private $films;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $photo='https://www.legumes-transformation.qc.ca/wp-content/uploads/2017/12/profil-vide.jpg';
+
 
     public function __construct()
     {
@@ -64,6 +69,18 @@ class Actor extends Person
             $this->films->removeElement($film);
             $film->removeActeur($this);
         }
+
+        return $this;
+    }
+
+    public function getPhoto(): ?string
+    {
+        return $this->photo;
+    }
+
+    public function setPhoto(?string $photo): self
+    {
+        $this->photo = $photo;
 
         return $this;
     }
