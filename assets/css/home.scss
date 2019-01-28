@@ -1,0 +1,32 @@
+h1 {
+  text-transform: uppercase;
+  font: 700  #{30px}/#{1} 'Arvo', sans-serif;
+  text-align: center;
+  animation: in 10s ease-in forwards infinite;
+  animation-delay: 1s;
+  text-shadow: 2px 2px 5px rgba(#000, 0.8);
+}
+
+@keyframes in {
+  0% {
+    letter-spacing: 20px;
+  }
+  100% {
+    letter-spacing: 5px;
+  }
+}
+
+// Decoration
+
+body {
+  background: #2E3E55;
+  background-image: url('http://unsplash.com/photos/d_5TQQQGSs8/download');
+  background-size: cover;
+  background-position: center center;
+  color: #fff;
+  height: 100vh;
+  .home {
+    display: flex;
+    height: 100vh;
+  }
+}
