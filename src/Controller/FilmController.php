@@ -9,10 +9,15 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Knp\Component\Pager\PaginatorInterface;
 
+/**
+ * @Route("/films")
+ * Class FilmController
+ * @package App\Controller
+ */
 class FilmController extends AbstractController
 {
     /**
-     * @Route("/film", name="film")
+     * @Route("", name="film")
      */
     public function index(Request $request,PaginatorInterface $paginator): Response
     {
@@ -27,6 +32,18 @@ class FilmController extends AbstractController
 
         return $this->render('film/index.html.twig', [
             'films' => $results,
+        ]);
+    }
+
+    /**
+     * @Route("/{id}", name="show_film")
+     * @param Film $film
+     * @return Response
+     */
+    public function show(Film $film): Response
+    {
+        return $this->render ('showfilm.html.twig', [
+            'film'=>$film
         ]);
     }
 }

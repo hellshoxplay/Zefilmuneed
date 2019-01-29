@@ -1,0 +1,30 @@
+@import url(https://fonts.googleapis.com/css?family=Fjalla+One);
+
+.films {
+  background: linear-gradient(to bottom, #405166 0%,#656f6f 100%);
+  .container {
+    margin-top: 60px;
+    background-color: lighten(#2E3E55, 35%);
+    color: darken(#2E3E55, 15%);
+  }
+  .card {
+    min-height: 500px;
+    margin-bottom: 15px;
+    .card-img-top {
+      height: 300px;
+      object-fit: cover;
+    }
+    .card-title {
+      font-size: 1.5em;
+      font-family: 'Fjalla One', sans-serif;
+    }
+  }
+  h2{
+    font-weight: 400;
+    margin: 0.4em 0;
+    color: #ffffff;
+    font-size: 2em;
+    width:25%;
+    height:60px;
+  }
+}
