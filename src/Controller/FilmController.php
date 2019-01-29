@@ -25,7 +25,7 @@ class FilmController extends AbstractController
             $this->getParameter('limitPaginator')
         );
 
-        return $this->render('film/home.html.twig', [
+        return $this->render('film/index.html.twig', [
             'films' => $results,
         ]);
     }
